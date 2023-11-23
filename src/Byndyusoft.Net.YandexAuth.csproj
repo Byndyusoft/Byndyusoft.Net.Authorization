@@ -10,8 +10,6 @@
     <Authors>Byndyusoft.Net</Authors>
     <Company>Byndyusoft</Company>
     <LangVersion>latest</LangVersion>
-	  <!--Development/Debug-->
-	  <!--<Version>$1.0.0-(Configuration)-$(Platform)-$([System.DateTime]::UtcNow.ToString(yyyyMMdd-HHmm))</Version>-->
   </PropertyGroup>
 
   <ItemGroup>

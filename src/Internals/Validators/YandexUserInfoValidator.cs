@@ -1,9 +1,9 @@
-﻿namespace Byndyusoft.Net.YandexAuth.Internals.Implementations;
+﻿namespace Byndyusoft.Net.YandexAuth.Internals.Validators;
 
 using System.Linq;
-using ModelResult;
 using Dtos;
 using Errors;
+using ModelResult;
 
 internal static class YandexUserInfoValidator
 {
