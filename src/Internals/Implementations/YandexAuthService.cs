@@ -2,12 +2,11 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using Byndyusoft.ModelResult.ModelResults;
+using ModelResult.ModelResults;
 using Dtos;
 using Interfaces;
 using Microsoft.Extensions.Options;
 
-[Service]
 internal class YandexAuthService : IYandexAuthService
 {
     private readonly IYandexAuthClient _yandexAuthClient;

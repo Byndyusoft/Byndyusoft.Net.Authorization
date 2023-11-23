@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Interfaces;
 using Microsoft.Extensions.Logging;
 
-[Service]
 internal class HttpResponseMessageDeserializer : IHttpResponseMessageDeserializer
 {
     private readonly ILogger<HttpResponseMessageDeserializer> _logger;

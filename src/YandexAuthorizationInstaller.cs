@@ -2,7 +2,8 @@
 namespace Microsoft.Extensions.DependencyInjection;
 
 using Byndyusoft.Net.YandexAuth;
-using Byndyusoft.Net.YandexAuth.Internals;
+using Byndyusoft.Net.YandexAuth.Internals.Implementations;
+using Byndyusoft.Net.YandexAuth.Internals.Interfaces;
 using Configuration;
 
 public static class YandexAuthorizationInstaller
@@ -12,9 +13,10 @@ public static class YandexAuthorizationInstaller
     /// </summary>
     public static IServiceCollection AddYandexAuthorization(this IServiceCollection services, IConfiguration configuration)
     {
-        services.Scan(x => x.FromAssemblyOf<ServiceAttribute>()
-                            .AddClasses(c => c.WithAttribute<ServiceAttribute>()).AsImplementedInterfaces()
-                            .WithTransientLifetime());
+        services.AddTransient<IHttpResponseMessageDeserializer, HttpResponseMessageDeserializer>();
+        services.AddTransient<IYandexAuthClient, YandexAuthClient>();
+        services.AddTransient<IYandexAuthService, YandexAuthService>();
+        services.AddTransient<IYandexResponseProcessor, YandexResponseProcessor>();
 
         services.Configure<YandexIdOptions>(configuration.GetSection(nameof(YandexIdOptions)));
 

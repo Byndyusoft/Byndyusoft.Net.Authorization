@@ -1,19 +1,32 @@
 ﻿namespace Byndyusoft.Net.YandexAuth.Internals.Implementations;
 
-using Byndyusoft.ModelResult;
+using System.Linq;
+using ModelResult;
 using Dtos;
 using Errors;
-using Extensions;
 
 internal static class YandexUserInfoValidator
 {
     public static ErrorInfo? ValidateForAuthentication(YandexUserInfoDto yandexUserInfo)
     {
-        var fluentValidator = new YandexUserInfoFluentValidator();
-        var errorInfoItems = fluentValidator.ValidateAndGetErrorInfoItems(yandexUserInfo);
-        if (errorInfoItems.Length == 0)
-            return null;
+        var errorItems = new ErrorInfoItem?[]
+                         {
+                             Validate(nameof(yandexUserInfo.Login), yandexUserInfo.Login),
+                             Validate(nameof(yandexUserInfo.FirstName), yandexUserInfo.FirstName),
+                             Validate(nameof(yandexUserInfo.LastName), yandexUserInfo.LastName),
+                             Validate(nameof(yandexUserInfo.Id), yandexUserInfo.Id),
+                             Validate(nameof(yandexUserInfo.DefaultAvatarId), yandexUserInfo.DefaultAvatarId),
+                         };
 
-        return AuthErrors.InvalidUserInfo(errorInfoItems);
+        return errorItems.Any(error => error != null)
+            ? AuthErrors.InvalidUserInfo(errorItems.Where(x => x != null).Select(x => x!).ToArray())
+            : null;
+    }
+
+    private static ErrorInfoItem? Validate(string propertyName, string value)
+    {
+        return string.IsNullOrWhiteSpace(value)
+            ? new ErrorInfoItem(propertyName, $"{propertyName} should is null or empty.")
+            : null;
     }
 }

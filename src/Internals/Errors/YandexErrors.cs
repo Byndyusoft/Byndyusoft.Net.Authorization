@@ -1,8 +1,7 @@
 ﻿// ReSharper disable MemberHidesStaticFromOuterClass
-
 namespace Byndyusoft.Net.YandexAuth.Internals.Errors;
 
-using Byndyusoft.ModelResult;
+using ModelResult;
 
 /// <summary>
 ///     Ошибки авторизации и получении данных пользователя

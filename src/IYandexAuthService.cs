@@ -2,7 +2,7 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using Byndyusoft.ModelResult.ModelResults;
+using ModelResult.ModelResults;
 
 /// <summary>
 ///     Сервис для работы с YandexID

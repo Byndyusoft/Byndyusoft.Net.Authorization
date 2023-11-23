@@ -4,13 +4,12 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Byndyusoft.ModelResult.ModelResults;
+using ModelResult.ModelResults;
 using Dtos;
 using Errors;
 using Interfaces;
 using Microsoft.Extensions.Logging;
 
-[Service]
 internal class YandexResponseProcessor : IYandexResponseProcessor
 {
     private readonly ILogger<YandexResponseProcessor> _logger;
