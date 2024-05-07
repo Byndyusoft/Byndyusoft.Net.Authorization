@@ -26,6 +26,11 @@ public class UserInfoDto
     public string Login { get; set; } = default!;
 
     /// <summary>
+    ///     E-mail по умолчанию пользователя Яндекса.
+    /// </summary>
+    public string DefaultEmail { get; set; } = default!;
+
+    /// <summary>
     ///     Идентификатор портрета пользователя Яндекса
     /// </summary>
     public string DefaultAvatarId { get; set; } = default!;

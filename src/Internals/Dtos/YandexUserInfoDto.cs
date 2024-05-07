@@ -32,6 +32,12 @@ internal class YandexUserInfoDto
     public string Login { get; set; } = default!;
 
     /// <summary>
+    ///     E-mail по умолчанию пользователя Яндекса.
+    /// </summary>
+    [JsonPropertyName("default_email")]
+    public string DefaultEmail { get; set; } = default!;
+
+    /// <summary>
     ///     Идентификатор портрета пользователя Яндекса
     /// </summary>
     [JsonPropertyName("default_avatar_id")]

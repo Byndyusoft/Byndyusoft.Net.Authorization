@@ -59,8 +59,7 @@ internal class YandexAuthService : IYandexAuthService
         };
     }
 
-    public async Task<ModelResult<UserInfoDto>> GetUserInfo(string yandexIdAccessToken,
-                                                         CancellationToken cancellationToken)
+    public async Task<ModelResult<UserInfoDto>> GetUserInfo(string yandexIdAccessToken, CancellationToken cancellationToken)
     {
         var yandexUserInfoResult = await _yandexAuthClient.GetUserInfo(yandexIdAccessToken, cancellationToken);
         if (yandexUserInfoResult.TryGetResult(out var yandexUserInfo) == false)
@@ -74,11 +73,12 @@ internal class YandexAuthService : IYandexAuthService
         {
             Id = yandexUserInfo.Id,
             Login = yandexUserInfo.Login,
+            DefaultEmail = yandexUserInfo.DefaultEmail,
             FirstName = yandexUserInfo.FirstName,
             LastName = yandexUserInfo.LastName,
             Sex = yandexUserInfo.Sex,
             DefaultAvatarId = yandexUserInfo.DefaultAvatarId,
-            IsAvatarEmpty = yandexUserInfo.IsAvatarEmpty,
+            IsAvatarEmpty = yandexUserInfo.IsAvatarEmpty
         };
     }
 
