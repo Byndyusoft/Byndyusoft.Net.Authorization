@@ -33,7 +33,7 @@ public class UserInfoDto
     /// <summary>
     ///     Идентификатор портрета пользователя Яндекса
     /// </summary>
-    public string DefaultAvatarId { get; set; } = default!;
+    public string? DefaultAvatarId { get; set; }
 
     /// <summary>
     ///     True, если вместо портрета заглушка
