@@ -14,8 +14,7 @@ internal static class YandexUserInfoValidator
                              Validate(nameof(yandexUserInfo.Login), yandexUserInfo.Login),
                              Validate(nameof(yandexUserInfo.FirstName), yandexUserInfo.FirstName),
                              Validate(nameof(yandexUserInfo.LastName), yandexUserInfo.LastName),
-                             Validate(nameof(yandexUserInfo.Id), yandexUserInfo.Id),
-                             Validate(nameof(yandexUserInfo.DefaultAvatarId), yandexUserInfo.DefaultAvatarId),
+                             Validate(nameof(yandexUserInfo.Id), yandexUserInfo.Id)
                          };
 
         return errorItems.Any(error => error != null)
